@@ -1,0 +1,27 @@
+﻿@using AspDotNetMvcOracle.Employees
+<div class="row">
+    <div class="col-6">
+        <h2>Employees</h2>
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Department</th>
+            </tr>
+            </thead>
+            <tbody>
+            @{
+                var emps = ViewBag.Employees as List<Employee>;
+                foreach (var employee in emps ?? new List<Employee>())
+                {
+                    <tr>
+                        <td>@employee.Name</td>
+                        <td>@employee.Department</td>
+                    </tr>
+                }
+            }
+            </tbody>
+        </table>
+        <a href="/Home/AddEmployee">Add Employee</a>
+    </div>
+</div>
